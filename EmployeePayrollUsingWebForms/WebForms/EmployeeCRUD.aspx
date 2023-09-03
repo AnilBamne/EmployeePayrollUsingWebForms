@@ -96,6 +96,7 @@
                 <td>&nbsp;</td>
                 <td>
                     <asp:Button ID="Button1" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button1_Click" Text="Add" Width="100px" />
+                    <asp:Button ID="Button2" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button2_Click" Text="Update" Width="100px" />
                 </td>
             </tr>
             <tr>

@@ -56,6 +56,20 @@ namespace EmployeePayrollUsingWebForms.WebForms
             connection.Close();
         }
 
-       
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            int id=int.Parse(TextBox1.Text);
+            string name = TextBox2.Text, email = TextBox3.Text, gender = RadioButtonList1.SelectedValue;
+            string department = DropDownList1.SelectedValue.ToString(), notes = TextBox4.Text;
+            DateTime startDate = DateTime.Parse(TextBox5.Text);
+            int salary = int.Parse(TextBox6.Text);
+
+            SqlCommand cmd = new SqlCommand("exec spUpdateEmp '" + id + "','" + name + "','" + email + "','" + gender + "','" + department + "','" + startDate + "','" + salary + "','" + notes + "'", connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Updated.');", true);
+            connection.Close();
+            GetEmpList();
+        }
     }
 }
