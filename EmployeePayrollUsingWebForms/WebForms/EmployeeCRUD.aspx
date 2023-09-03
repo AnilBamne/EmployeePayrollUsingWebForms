@@ -96,7 +96,8 @@
                 <td>&nbsp;</td>
                 <td>
                     <asp:Button ID="Button1" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button1_Click" Text="Add" Width="100px" />
-                    <asp:Button ID="Button2" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button2_Click" Text="Update" Width="100px" />
+                    <asp:Button ID="Button2" runat="server" BackColor="#0066FF" Font-Size="Medium" ForeColor="White" OnClick="Button2_Click" Text="Update" Width="100px" />
+                    <asp:Button ID="Button3" runat="server" BackColor="#FF3399" Font-Size="Medium" ForeColor="White" OnClick="Button3_Click" Text="Delete" Width="100px" OnClientClick="return confirm('Are you sure ... you want to delete this employee record ?');" />
                 </td>
             </tr>
             <tr>

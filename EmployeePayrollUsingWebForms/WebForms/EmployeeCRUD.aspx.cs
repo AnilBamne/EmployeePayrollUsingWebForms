@@ -71,5 +71,17 @@ namespace EmployeePayrollUsingWebForms.WebForms
             connection.Close();
             GetEmpList();
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(TextBox1.Text);
+
+            SqlCommand cmd = new SqlCommand("exec spDeleteEmp '" + id + "'",connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Deleted.');", true);
+            connection.Close();
+            GetEmpList();
+        }
     }
 }
