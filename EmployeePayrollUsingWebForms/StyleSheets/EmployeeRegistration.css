@@ -1,0 +1,30 @@
+﻿body {
+    display:flex;
+    background-color:aliceblue;
+    height:500px;
+    width:700px;
+}
+.form-content{
+    display:flex;
+    flex-direction:column;
+    //justify-content:center;
+    //background-color:antiquewhite;
+    width:500px;
+    height:400px;
+}
+.row{
+    display:flex;
+    margin-top:10px;
+    
+}
+.row-name{
+    margin-right:40px;
+    padding:10px;
+    width:100px;
+}
+h3{
+    padding:10px;
+}
+.input{
+    width:300px;
+}
