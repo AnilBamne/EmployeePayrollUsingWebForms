@@ -9,6 +9,9 @@
         .auto-style1 {
             width: 100%;
         }
+        .auto-style2 {
+            height: 37px;
+        }
     </style>
 </head>
 <body>
@@ -24,7 +27,7 @@
                     <asp:Label ID="Label1" runat="server" Font-Size="Medium" Text="Emp ID"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -32,7 +35,7 @@
                     <asp:Label ID="Label2" runat="server" Font-Size="Medium" Text="Name"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -40,15 +43,15 @@
                     <asp:Label ID="Label3" runat="server" Font-Size="Medium" Text="Email"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="auto-style2">
                     <asp:Label ID="Label4" runat="server" Font-Size="Medium" Text="Gender"></asp:Label>
                 </td>
-                <td>
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
+                <td class="auto-style2">
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" Width="300px">
                         <asp:ListItem Value="Male"></asp:ListItem>
                         <asp:ListItem Value="Female"></asp:ListItem>
                     </asp:RadioButtonList>
@@ -59,7 +62,7 @@
                     <asp:Label ID="Label5" runat="server" Font-Size="Medium" Text="Department"></asp:Label>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Font-Size="Medium" Width="200px">
+                    <asp:DropDownList ID="DropDownList1" runat="server" Font-Size="Medium" Width="305px">
                         <asp:ListItem Value="HR"></asp:ListItem>
                         <asp:ListItem Value="Sales"></asp:ListItem>
                         <asp:ListItem Value="Marketing"></asp:ListItem>
@@ -73,7 +76,7 @@
                     <asp:Label ID="Label6" runat="server" Font-Size="Medium" Text="Start Date"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox5" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox5" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -81,7 +84,7 @@
                     <asp:Label ID="Label7" runat="server" Text="Salary"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox6" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox6" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -89,20 +92,19 @@
                     <asp:Label ID="Label8" runat="server" Text="Notes"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox4" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="Button1" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button1_Click" Text="Add" Width="100px" />
-                    <asp:Button ID="Button2" runat="server" BackColor="#0066FF" Font-Size="Medium" ForeColor="White" OnClick="Button2_Click" Text="Update" Width="100px" />
-                    <asp:Button ID="Button3" runat="server" BackColor="#FF3399" Font-Size="Medium" ForeColor="White" OnClick="Button3_Click" Text="Delete" Width="100px" OnClientClick="return confirm('Are you sure ... you want to delete this employee record ?');" />
+                    &nbsp;<asp:Button ID="Button2" runat="server" BackColor="#0066FF" Font-Size="Medium" ForeColor="White" OnClick="Button2_Click" Text="Update" Width="100px" />
+                    &nbsp;<asp:Button ID="Button3" runat="server" BackColor="#FF3399" Font-Size="Medium" ForeColor="White" OnClick="Button3_Click" Text="Delete" Width="100px" OnClientClick="return confirm('Are you sure ... you want to delete this employee record ?');" />
+                &nbsp;<asp:Button ID="Button4" runat="server" BackColor="#CC9900" Font-Size="Medium" ForeColor="White" OnClick="Button4_Click" Text="Clear" Width="100px" />
                 </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>

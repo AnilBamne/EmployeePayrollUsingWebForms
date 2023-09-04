@@ -83,5 +83,13 @@ namespace EmployeePayrollUsingWebForms.WebForms
             connection.Close();
             GetEmpList();
         }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            TextBox1.Text=TextBox2.Text= TextBox3.Text = TextBox4.Text= TextBox5.Text= TextBox6.Text= string.Empty;
+            DropDownList1.ClearSelection();
+            RadioButtonList1.ClearSelection();
+            GetEmpList();
+        }
     }
 }
