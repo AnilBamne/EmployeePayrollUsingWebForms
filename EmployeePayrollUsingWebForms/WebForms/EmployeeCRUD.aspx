@@ -27,7 +27,8 @@
                     <asp:Label ID="Label1" runat="server" Font-Size="Medium" Text="Emp ID"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                &nbsp;<asp:Button ID="Button5" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button5_Click" Text="Search" Width="90px" Height="40px" />
                 </td>
             </tr>
             <tr>
@@ -100,10 +101,10 @@
             </tr>
             <tr>
                 <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button1" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button1_Click" Text="Add" Width="100px" />
-                    &nbsp;<asp:Button ID="Button2" runat="server" BackColor="#0066FF" Font-Size="Medium" ForeColor="White" OnClick="Button2_Click" Text="Update" Width="100px" />
-                    &nbsp;<asp:Button ID="Button3" runat="server" BackColor="#FF3399" Font-Size="Medium" ForeColor="White" OnClick="Button3_Click" Text="Delete" Width="100px" OnClientClick="return confirm('Are you sure ... you want to delete this employee record ?');" />
-                &nbsp;<asp:Button ID="Button4" runat="server" BackColor="#CC9900" Font-Size="Medium" ForeColor="White" OnClick="Button4_Click" Text="Clear" Width="100px" />
+                    <asp:Button ID="Button1" runat="server" BackColor="#6600FF" Font-Size="Medium" ForeColor="White" OnClick="Button1_Click" Text="Add" Width="90px" Height="40px" />
+                    &nbsp;<asp:Button ID="Button2" runat="server" BackColor="#0066FF" Font-Size="Medium" ForeColor="White" OnClick="Button2_Click" Text="Update" Width="90px" Height="40px" />
+                    &nbsp;<asp:Button ID="Button3" runat="server" BackColor="#FF3399" Font-Size="Medium" ForeColor="White" OnClick="Button3_Click" Text="Delete" Width="90px" OnClientClick="return confirm('Are you sure ... you want to delete this employee record ?');" Height="40px" />
+                &nbsp;<asp:Button ID="Button4" runat="server" BackColor="#CC9900" Font-Size="Medium" ForeColor="White" OnClick="Button4_Click" Text="Clear" Width="90px" Height="40px" />
                 </td>
             </tr>
             <tr>

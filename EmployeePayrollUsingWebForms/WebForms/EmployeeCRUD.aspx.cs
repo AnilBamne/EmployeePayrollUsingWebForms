@@ -91,5 +91,20 @@ namespace EmployeePayrollUsingWebForms.WebForms
             RadioButtonList1.ClearSelection();
             GetEmpList();
         }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(TextBox1.Text);
+            string query = "select * from EmployeeTable where EmpId=@id";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", id);
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            GridView1.DataSource = table;
+            GridView1.DataBind();
+            connection.Close();
+        }
     }
 }
