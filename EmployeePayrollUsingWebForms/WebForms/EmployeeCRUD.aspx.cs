@@ -13,9 +13,17 @@ namespace EmployeePayrollUsingWebForms.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                GetEmpList();
+                if (!IsPostBack)
+                {
+                    GetEmpList();
+                }
+            }
+            catch (Exception)
+            {
+                throw new CustomExceptions(CustomExceptions.ExceptioType.INVALID_OPERATION, "This is an invalid operation");
+
             }
         }
         SqlConnection connection=new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SampleDB;Integrated Security=True;");
@@ -38,10 +46,10 @@ namespace EmployeePayrollUsingWebForms.WebForms
                 Reset();
                 GetEmpList();
             }
-            catch (Exception ex)
+            catch (CustomExceptions )
             {
 
-                throw ex;
+                throw new CustomExceptions(CustomExceptions.ExceptioType.INVALID_INPUT, "Please provide propper input values");
             }
         }
 
@@ -58,10 +66,9 @@ namespace EmployeePayrollUsingWebForms.WebForms
                 GridView1.DataBind();
                 connection.Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-
-                throw ex;
+                throw new CustomExceptions(CustomExceptions.ExceptioType.INVALID_OPERATION, "Somthing went wrong .....");
             }
         }
 
@@ -109,12 +116,21 @@ namespace EmployeePayrollUsingWebForms.WebForms
         //    }
         //}
 
+        /// <summary>
+        /// reset input values
+        /// </summary>
         void Reset()
         {
             TextBox2.Text = TextBox3.Text = TextBox4.Text = TextBox5.Text = TextBox6.Text = string.Empty;
             DropDownList1.ClearSelection();
             RadioButtonList1.ClearSelection();
         }
+
+        /// <summary>
+        /// Clear button to reset form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Button4_Click(object sender, EventArgs e)
         {
             try
@@ -159,38 +175,66 @@ namespace EmployeePayrollUsingWebForms.WebForms
 
         //}
 
+        /// <summary>
+        /// Row editing button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
             GetEmpList();
         }
 
+        /// <summary>
+        /// Updating employee data 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
-            string name = ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
-            string email = ((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0]).Text;
-            string gender = ((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
-            string department = ((TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0]).Text;
-            DateTime startDate = Convert.ToDateTime(((TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0]).Text);
-            int salary = Convert.ToInt32(((TextBox)GridView1.Rows[e.RowIndex].Cells[6].Controls[0]).Text);
-            string notes = ((TextBox)GridView1.Rows[e.RowIndex].Cells[7].Controls[0]).Text;
+            try
+            {
+                int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
+                string name = ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0]).Text;
+                string email = ((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0]).Text;
+                string gender = ((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
+                string department = ((TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0]).Text;
+                DateTime startDate = Convert.ToDateTime(((TextBox)GridView1.Rows[e.RowIndex].Cells[5].Controls[0]).Text);
+                int salary = Convert.ToInt32(((TextBox)GridView1.Rows[e.RowIndex].Cells[6].Controls[0]).Text);
+                string notes = ((TextBox)GridView1.Rows[e.RowIndex].Cells[7].Controls[0]).Text;
 
-            SqlCommand cmd = new SqlCommand("exec spUpdateEmp '" + id + "','" + name + "','" + email + "','" + gender + "','" + department + "','" + startDate + "','" + salary + "','" + notes + "'", connection);
-            connection.Open();
-            cmd.ExecuteNonQuery();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Updated.');", true);
-            connection.Close();
-            GridView1.EditIndex = -1;
-            GetEmpList();
+                SqlCommand cmd = new SqlCommand("exec spUpdateEmp '" + id + "','" + name + "','" + email + "','" + gender + "','" + department + "','" + startDate + "','" + salary + "','" + notes + "'", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Updated.');", true);
+                connection.Close();
+                GridView1.EditIndex = -1;
+                GetEmpList();
+            }
+            catch (Exception)
+            {
+
+                throw new CustomExceptions(CustomExceptions.ExceptioType.INVALID_INPUT, "Please provide valid inputs .....");
+            }
         }
 
+        /// <summary>
+        /// Cancel edit button functionality
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1;
             GetEmpList();
         }
 
+        /// <summary>
+        /// Deleting employee records
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
@@ -207,10 +251,10 @@ namespace EmployeePayrollUsingWebForms.WebForms
                 GetEmpList();
                 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                throw new CustomExceptions(CustomExceptions.ExceptioType.NOT_FOUND, "Employee records with this id are not found ...");
             }
         }
     }

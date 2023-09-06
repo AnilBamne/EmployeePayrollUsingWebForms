@@ -212,6 +212,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\CustomExceptions.cs" />
     <Compile Include="WebForms\EmployeeCRUD.aspx.cs">
       <DependentUpon>EmployeeCRUD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
